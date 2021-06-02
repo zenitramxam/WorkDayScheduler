@@ -1,6 +1,25 @@
 var currentDate= moment().format('dddd, MMM Do YYYY,');
     $('#currentDay').html(currentDate);
 
+var currentTi= moment().format('LT');
+$('#currentTime').html(currentTi);
+
+var d = new Date();
+var hr = d.getHours();
+
+function colorArea() {
+
+    if (hr > 9) {
+        $('#descript1').addClass('past');
+    }
+    else if (hr >= 9 && hr <10) {
+        $('#descript1').addClass('.present');
+    }
+    else if (hr < 9) {
+        $('#descript1').addClass('.future');
+    }
+}
+
 $(document).ready(function() {
     console.log("ready!");
     $('.saveBtn1').on('click', function() {
